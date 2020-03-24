@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+//initializing app function
+//defining photos to be used in game, with cooresponding ids. setting array for later score keeping
 function App() {
   const [state, setState] = useState({
     pics:[
@@ -20,13 +22,13 @@ function App() {
   ], 
   beenClicked:[],
 }) 
+const originalState = [state, setState];
 
+// function to allow photos array to be shuffled
   function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
-  
     // While there remain elements to shuffle...
     while (0 !== currentIndex) {
-  
       // Pick a remaining element...
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex -= 1;
@@ -36,21 +38,22 @@ function App() {
       array[currentIndex] = array[randomIndex];
       array[randomIndex] = temporaryValue;
     }
-  
     return array;
   }
 
-  console.log("state is here", state);
-
+// handling clicks within the game & connecting function to overall state & picture array
   const handleClick = (id) => {
-    console.log("you got clicked", id);
+    // console.log("you got clicked", id);
     var newPics = state.pics;
+    //linking above shuffle function to our picture array
     var shufflepics = shuffle(newPics);
     var newClicks = state.beenClicked;
+    // comparing if a picture has already been clicked, if so, you lose
     if(newClicks.indexOf(id) === -1)  {
       newClicks.push(id);
     setState({...state, pics:shufflepics, beenClicked:newClicks})
     } else {
+      // setState({...originalState, beenClicked:[]});
       alert("you lose");
     }
   }
