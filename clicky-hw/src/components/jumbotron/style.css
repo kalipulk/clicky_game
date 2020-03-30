@@ -1,0 +1,21 @@
+.container {
+    background-image: linear-gradient(#6c9585, #bed0a6, #fff);
+    height: 250px;
+    margin: auto;
+    text-align: center;
+    color: white;
+}
+
+.title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 60px;
+    padding-top: 30px;
+    padding-bottom: 7px;
+
+}
+.directions {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+
+}
+

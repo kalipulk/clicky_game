@@ -1,12 +1,14 @@
-import React from "react";
+import React from 'react';
+import "./style.css";
 
-function Jumbotron({ children }) {
+function Jumbotron() {
+  
   return (
-    <div
-      style={{ height: 300, clear: "both", paddingTop: 120, textAlign: "center" }}
-      className="jumbotron"
-    >
-      {children}
+    <div className="container">
+      <div className="title">Boop the Snoot</div> 
+        <div className="directions">
+          Click on a doggo to earn a point, but don't click the same one more than once, or it's game over!
+        </div> 
     </div>
   );
 }

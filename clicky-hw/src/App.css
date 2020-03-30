@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.fonts {
+  font-family: 'Bebas Neue', cursive;
+}
+
+.cardWrapper {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  margin: auto;
+}

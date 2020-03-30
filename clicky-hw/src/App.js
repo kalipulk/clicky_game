@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Card from './components/Card/card';
+import Jumbotron from './components/Jumbotron/index.js';
+
 
 //initializing app function
 //defining photos to be used in game, with cooresponding ids. setting array for later score keeping
@@ -21,6 +24,7 @@ function App() {
     {id:12, url:"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQxDWf2NmjySqO5vgrajhwRJLYzulXZdbxKYgSlTQk_ySsPUTuJ"}
   ], 
   beenClicked:[],
+  gameOver: false
 }) 
 const originalState = [state, setState];
 
@@ -53,18 +57,43 @@ const originalState = [state, setState];
       newClicks.push(id);
     setState({...state, pics:shufflepics, beenClicked:newClicks})
     } else {
-      // setState({...originalState, beenClicked:[]});
-      alert("you lose");
+      setState({...state, beenClicked:[], gameOver:true},function(){
+        console.log("happened after update");
+      });
     }
   }
 
+  const hideGameOver = () => {
+    setTimeout(function(){
+      console.log("hide game over");
+      setState({...state, beenClicked:[], gameOver:false})
+    }, 3000)
+  }
+
+  var gameOver = (<h1 className="fonts">Game Over</h1>) 
+    if(state.gameOver === true){
+      hideGameOver();
+    }
+
   return (
+    
     <div className="App">
-      <h1>Score: {state.beenClicked.length}</h1>
-      {state.pics.map((singlepic) => {
-        return (<img src={singlepic.url} onClick = {() => {handleClick(singlepic.id)}}></img>)
-      })}
-      
+      <div>
+        <Jumbotron />
+      </div>
+      <div>
+        {state.gameOver === true ? gameOver : ""}
+        <h1 className="fonts">Score: {state.beenClicked.length}</h1>
+      </div>
+      <div className="cardWrapper">
+        {state.pics.map((singlepic) => {
+          return (
+            <div>
+            <Card src ={singlepic.url} click ={handleClick} id ={singlepic.id}/>
+            </div>
+            )
+          })}
+        </div>
     </div>
   );
 }
