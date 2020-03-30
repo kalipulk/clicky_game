@@ -4,8 +4,8 @@ import "./style.css";
 function Card (props) {
     var style = {
         img:{
-            width: "200px",
-            height: "200px",
+            width: "175px",
+            height: "175px",
             margin: "5px",
             padding: "5px",
         }

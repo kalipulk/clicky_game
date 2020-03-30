@@ -43,7 +43,9 @@
 
 .cardWrapper {
   display: flex;
+  justify-content: center;
   align-items: stretch;
   flex-wrap: wrap;
-  margin: auto;
+  margin-left: 50px;
+  margin-right: 50px;
 }
