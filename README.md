@@ -1,3 +1,7 @@
+
+This application is a simple React memory game. The user is prompted to click on each picture only once. The trick is to remember which image is clicked, because after each click, the images shuffle! 
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
